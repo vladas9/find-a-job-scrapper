@@ -9,10 +9,8 @@ def read_keywords_and_cities(file_name):
         list: A list of words extracted from the file.
 
     """
-    
-    with open(file_name, 'r') as f:
+    with open(file_name, 'r', encoding='utf-8') as f:
         data = f.read()
         word_list = [word.strip() for word in data.split(',')]
     return word_list
 
-#print(readFile('keywords.txt'))
