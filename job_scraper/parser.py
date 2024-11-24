@@ -40,5 +40,3 @@ def parse_job_listings(html):
     return soup.find_all("div", class_="search-result")
 
 
-class JobParser:
-    pass
