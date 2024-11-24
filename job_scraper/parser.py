@@ -36,7 +36,6 @@ def parse_job_listings(html):
     Extracts job listings from the HTML.
     """
     soup = BeautifulSoup(html, "html.parser")
-    print(soup.find_all("div", class_="search-result"))
     return soup.find_all("div", class_="search-result")
 
 
