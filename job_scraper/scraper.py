@@ -2,17 +2,15 @@ from bs4 import BeautifulSoup
 from utils.file_utils import read_txt
 from utils.link_utils import check_link
 from job_scraper.fetcher import JobFetcher
-from job_scraper.parser import JobParser
+from job_scraper.parser import parse_job_details, parse_job_listings
 from job_scraper.poster import JobPoster
 from utils.link_utils import build_link
 from utils.phone_number_utils import extract_phone_numbers
-from utils.date_utils import check_by_date
 
 class JobScraper:
     def __init__(self, base_link, spreadsheet_url):
         self.base_link = base_link
         self.fetcher = JobFetcher()
-        self.parser = JobParser()
         self.poster = JobPoster(spreadsheet_url)
 
     def scrape_jobs(self):
@@ -30,7 +28,7 @@ class JobScraper:
                     print(f"Failed to fetch URL: {search_link}")
                     continue
 
-                job_listings = self.parser.parse_job_listings(html)
+                job_listings = parse_job_listings(html)
                 if not job_listings:
                     print(f"No job listings found for URL: {search_link}")
                     continue
@@ -43,7 +41,7 @@ class JobScraper:
                     
                     
 
-                    job_details = self.parser.parse_job_details(job_element)
+                    job_details = parse_job_details(job_element)
                     if not job_details:
                         print("Failed to parse job details. Skipping element.")
                         continue
