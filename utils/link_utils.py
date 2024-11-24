@@ -1,5 +1,5 @@
-from utilities.file_utils import convert_json_to_dict as cj
-from utilities.file_utils import add_to_json as aj
+from utils.file_utils import convert_json_to_dict as cj
+from utils.file_utils import add_to_json as aj
 def build_link(base_link, keyword, city):
     """
     Builds a list of job search links based on keywords and cities.

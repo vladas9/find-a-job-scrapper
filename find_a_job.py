@@ -1,7 +1,7 @@
 import re
 import requests
 from bs4 import BeautifulSoup
-import utilities.link_utils as lb
+import utils.link_utils as lb
 
 
 class JobScraper:

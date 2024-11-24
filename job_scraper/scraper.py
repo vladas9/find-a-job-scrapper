@@ -1,12 +1,12 @@
 from bs4 import BeautifulSoup
-from utilities.file_utils import read_txt
-from utilities.link_utils import check_link
+from utils.file_utils import read_txt
+from utils.link_utils import check_link
 from job_scraper.fetcher import JobFetcher
 from job_scraper.parser import JobParser
 from job_scraper.poster import JobPoster
-from utilities.link_utils import build_link
-from utilities.phone_number_utils import extract_phone_numbers
-from utilities.date_utils import check_by_date
+from utils.link_utils import build_link
+from utils.phone_number_utils import extract_phone_numbers
+from utils.date_utils import check_by_date
 
 class JobScraper:
     def __init__(self, base_link, spreadsheet_url):
