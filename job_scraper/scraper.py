@@ -47,9 +47,9 @@ class JobScraper:
                     if not job_details:
                         print("Failed to parse job details. Skipping element.")
                         continue
-                    date_posted = job_details["date_posted"]
-                    if not check_by_date(date_posted):
-                        continue
+                    #date_posted = job_details["date_posted"]
+                    #if not check_by_date(date_posted):
+                    #    continue
                         
                     job_html = self.fetcher.fetch(job_details["url"])
                     if not job_html:
