@@ -23,25 +23,26 @@ class JobScraper:
             for city in city_list:
                 search_link = build_link(self.base_link, keyword, city)
 
+
                 html = self.fetcher.fetch(search_link)
+
                 if not html:
                     print(f"Failed to fetch URL: {search_link}")
                     continue
 
-                job_listings = parse_job_listings(html)
+                job_listings = parse_job_listings(html,self.base_link)
                 if not job_listings:
                     print(f"No job listings found for URL: {search_link}")
                     continue
 
                 for job_element in job_listings:
                     link = job_element.find("a").get("href")
-
                     if not check_link(link):
-                        continue
+                      continue
                     
                     
 
-                    job_details = parse_job_details(job_element)
+                    job_details = parse_job_details(job_element, self.base_link)
                     if not job_details:
                         print("Failed to parse job details. Skipping element.")
                         continue
@@ -58,9 +59,7 @@ class JobScraper:
                     description = soup.find(itemprop="description")
                     description_text = description.get_text(strip=True) if description else ""
                     phone_numbers = extract_phone_numbers(description_text)
-                    job_details.pop("date_posted", None)
                     job_details["phone_numbers"] = phone_numbers
-                    job_details["source"] = "find-a-job"
                     job_details["keyword"] = keyword
                     job_details["city"] = city
                     self.poster.post_job(job_details)
