@@ -13,10 +13,10 @@ def build_link(base_link, keyword, city):
         str: a link to the job search
     """
     if base_link == 'https://findajob.dwp.gov.uk':
-        return f"{base_link}/search?adv=1&qwd={keyword}&cat=28&f=3&w={city}&d=25&pp=25&sb=date&sd=down"
+        return f"{base_link}/search?adv=1&qwd={keyword}&cat=28&f=1&w={city}&d=25&pp=25&sb=date&sd=down"
     elif base_link == 'https://www.cv-library.co.uk':
         return (f"{base_link}/{keyword.replace(' ', '-')}-jobs-in-{city}"
-                f"?categories=construction&distance=25&order=date&posted=3&us=1")
+                f"?categories=construction&distance=25&order=date&posted=1&us=1")
     else:
         raise ValueError(f"Unsupported base_link: {base_link}")
 
