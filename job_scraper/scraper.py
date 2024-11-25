@@ -37,7 +37,6 @@ class JobScraper:
 
                 for job_element in job_listings:
                     link = job_element.find("a").get("href")
-                    print(link)
                     if not check_link(link):
                       continue
                     

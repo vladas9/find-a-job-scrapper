@@ -27,7 +27,7 @@ def main():
     # Define base links for both scrapers
     base_links = [
         "https://www.cv-library.co.uk",
-        "https://findajob.dwp.gov.uk/"
+        "https://findajob.dwp.gov.uk"
     ]
 
     # Create a process for each base link
