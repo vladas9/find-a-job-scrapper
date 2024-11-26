@@ -25,8 +25,6 @@ def check_link(link):
 
     if link.startswith("/job/"):
         pattern = r"\/job\/(\d+)"
-
-        # Search for the pattern in the URL
         match = re.search(pattern, link)
         job_id = match.group(1)
         link = f'https://www.cv-library.co.uk/job/{job_id}'
