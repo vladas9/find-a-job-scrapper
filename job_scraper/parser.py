@@ -29,7 +29,7 @@ def parse_job_details(job_element, base_link):
         job_title = article.get("data-job-title")
         company_name = article.get("data-company-name")
         location = article.get("data-job-location")
-        salary = article.get("data-job-salary")
+        salary = (article.get("data-job-salary") if "£" in article.get("data-job-salary") else "Not Specified")
         source = "cv-library"
 
     return {
