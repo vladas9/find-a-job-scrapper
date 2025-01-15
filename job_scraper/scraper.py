@@ -59,7 +59,7 @@ class JobScraper:
                     description = soup.find(itemprop="description")
                     description_text = description.get_text(strip=True) if description else ""
                     phone_numbers = extract_phone_numbers(description_text)
-                    job_details["phone_numbers"] = phone_numbers if phone_numbers and len(phone_numbers) > 0 else "NOT FOUND IN DESCRIPTION"
+                    job_details["phone_numbers"] = phone_numbers if phone_numbers else ["NOT FOUND IN DESCRIPTION"]
                     job_details["keyword"] = keyword
                     job_details["city"] = city
                     self.poster.post_job(job_details)
