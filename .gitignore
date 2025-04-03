@@ -1,2 +1,3 @@
 venv/
 scraped_jobs/
+**/__pycache__/
